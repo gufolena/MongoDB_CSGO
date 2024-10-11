@@ -27,13 +27,15 @@ Link do arquivo csv: https://www.kaggle.com/datasets/naumanaarif/csgo-pro-player
 - Streamlit
 
 ## Instalação
+Existem duas formas de realizar a instalação, pelo pipenv ou pelo requirements.txt
 
-1. Instale o MongoDB seguindo as instruções do [site oficial](https://www.mongodb.com/try/download/community).
-
-2. Instale as dependências do projeto, como o PyMongo, executando:
-   ```bash
-   pip install pymongo
-   ```
+1. Pelo primeiro caso:
+    - pip install pipenv (caso o usuário não possua ele instalado)
+    - Vá até o diretório raiz do projeto
+    - pipenv install
+     
+2. Pelo segundo caso : 
+    - pip install -r requirements.txt
 
 ## Configuração
 
