@@ -1,0 +1,156 @@
+# Modelagem do Banco de Dados - Jogadores de CS:GO
+
+## Estrutura Geral do Documento
+
+```json
+{
+  "_id": ObjectId(),
+  "player_id": Number,
+  "nickname": String,
+  "real_name": String,
+  "age": Number,
+  "country": String,
+  "current_team": String,
+  "teams": [String], 
+  "stats": {
+      "total_kills": Number,
+      "total_deaths": Number,
+      "headshot_percentage": String,
+      "damage_per_round": Number,
+      "grenade_dmg_per_round": Number,
+      "maps_played": Number,
+      "rounds_played": Number,
+      "kills_per_death": Number,
+      "kills_per_round": Number,
+      "assists_per_round": Number,
+      "deaths_per_round": Number,
+      "saved_by_teammate_per_round": Number,
+      "saved_teammates_per_round": Number,
+      "rounds_with_kills": Number,
+      "kill_to_death_diff": String,
+      "total_opening_kills": Number,
+      "total_opening_deaths": Number,
+      "opening_kill_ratio": Number,
+      "opening_kill_rating": Number,
+      "team_win_percent_after_first_kill": String,
+      "first_kill_in_won_rounds": String,
+      "rounds_by_kills": {
+          "0_kill_rounds": Number,
+          "1_kill_rounds": Number,
+          "2_kill_rounds": Number,
+          "3_kill_rounds": Number,
+          "4_kill_rounds": Number,
+          "5_kill_rounds": Number
+      }
+  },
+  "kills_breakdown": {
+      "rifle_kills": Number,
+      "sniper_kills": Number,
+      "smg_kills": Number,
+      "pistol_kills": Number,
+      "grenade_kills": Number,
+      "other_kills": Number
+  },
+  "rating": Number
+}
+
+Descrição dos Campos
+
+_id: Identificador único no MongoDB para cada documento.
+player_id: ID único para identificar o jogador.
+nickname: Nome de usuário do jogador.
+real_name: Nome real do jogador.
+age: Idade do jogador.
+country: País de origem do jogador.
+current_team: Nome do time atual do jogador.
+teams: Histórico de times aos quais o jogador pertenceu (armazenado como uma lista de strings).
+stats: Subdocumento que armazena todas as estatísticas do jogador.
+total_kills: Total de abates.
+total_deaths: Total de mortes.
+headshot_percentage: Porcentagem de abates por headshot.
+damage_per_round: Dano médio por rodada.
+grenade_dmg_per_round: Dano de granadas por rodada.
+maps_played: Número de mapas jogados.
+rounds_played: Número de rodadas jogadas.
+kills_per_death: Relação de abates por morte.
+kills_per_round: Abates por rodada.
+assists_per_round: Assistências por rodada.
+deaths_per_round: Mortes por rodada.
+saved_by_teammate_per_round: Quantas vezes foi salvo por um companheiro de equipe por rodada.
+saved_teammates_per_round: Quantas vezes salvou um companheiro de equipe por rodada.
+rounds_with_kills: Número de rodadas com abates.
+kill_to_death_diff: Diferença entre abates e mortes (por exemplo, "K - D diff.").
+total_opening_kills: Total de abates na abertura.
+total_opening_deaths: Total de mortes na abertura.
+opening_kill_ratio: Relação de abates na abertura.
+opening_kill_rating: Classificação de abates na abertura.
+team_win_percent_after_first_kill: Percentual de vitórias da equipe após o primeiro abate (ex: "77.0%").
+first_kill_in_won_rounds: Percentual de rodadas ganhas com o primeiro abate (ex: "16.2%").
+rounds_by_kills: Subdocumento que categoriza rodadas pelo número de abates.
+0_kill_rounds: Rodadas sem abates.
+1_kill_rounds: Rodadas com 1 abate.
+2_kill_rounds: Rodadas com 2 abates.
+3_kill_rounds: Rodadas com 3 abates.
+4_kill_rounds: Rodadas com 4 abates.
+5_kill_rounds: Rodadas com 5 abates.
+kills_breakdown: Subdocumento que detalha os tipos de abates.
+rifle_kills: Abates com rifles.
+sniper_kills: Abates com snipers.
+smg_kills: Abates com SMGs.
+pistol_kills: Abates com pistolas.
+grenade_kills: Abates com granadas.
+other_kills: Abates com outras armas.
+rating: Classificação geral do jogador.
+
+Exemplo de Documento
+
+{
+  "_id": ObjectId("670883bae42e383678912149"),
+  "player_id": 16920,
+  "nickname": "sh1ro",
+  "real_name": "Dmitry Sokolov",
+  "age": 21,
+  "country": "Russia",
+  "current_team": "Cloud9",
+  "teams": ["Gambit Youngsters", "Gambit"],
+  "stats": {
+      "total_kills": 18091,
+      "total_deaths": 12492,
+      "headshot_percentage": "27.8%",
+      "damage_per_round": 78.6,
+      "grenade_dmg_per_round": 3.9,
+      "maps_played": 884,
+      "rounds_played": 23451,
+      "kills_per_death": 1.45,
+      "kills_per_round": 0.77,
+      "assists_per_round": 0.11,
+      "deaths_per_round": 0.53,
+      "saved_by_teammate_per_round": 0.08,
+      "saved_teammates_per_round": 0.11,
+      "rounds_with_kills": 11950,
+      "kill_to_death_diff": "K - D diff.",
+      "total_opening_kills": 2705,
+      "total_opening_deaths": 1383,
+      "opening_kill_ratio": 1.96,
+      "opening_kill_rating": 1.15,
+      "team_win_percent_after_first_kill": "77.0%",
+      "first_kill_in_won_rounds": "16.2%",
+      "rounds_by_kills": {
+          "0_kill_rounds": 11501,
+          "1_kill_rounds": 7416,
+          "2_kill_rounds": 3208,
+          "3_kill_rounds": 1075,
+          "4_kill_rounds": 221,
+          "5_kill_rounds": 30
+      }
+  },
+  "kills_breakdown": {
+      "rifle_kills": 3791,
+      "sniper_kills": 10580,
+      "smg_kills": 550,
+      "pistol_kills": 3008,
+      "grenade_kills": 175,
+      "other_kills": 70
+  },
+  "rating": 1.26
+}

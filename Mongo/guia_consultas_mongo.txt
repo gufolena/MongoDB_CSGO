@@ -1,0 +1,46 @@
+MongoDB CS
+Database Queries
+Este repositório contém diversas consultas MongoDB desenvolvidas para extrair métricas de desempenho de jogadores de CS
+a partir de um banco de dados. As consultas se concentram em análises estatísticas variadas sobre o desempenho dos jogadores em partidas, incluindo abates, assistências, métricas por round e comparações entre países.
+
+Consultas Simples
+
+1. Porcentagem de Mapas com Mais de X Abates
+Função: percentage_maps_with_kills_above(player_id, kill_threshold)
+Descrição: Calcula a porcentagem de mapas nos quais um jogador tem mais de um determinado número de abates.
+2. Ranking de Jogadores por Razão de Abates/Assistências
+Função: ranking_kills_assists()
+Descrição: Classifica os jogadores com base na razão combinada de abates por round e assistências por round.
+3. Diferença de Abates Entre Jogadores com Mais de X Mapas Jogados
+Função: kill_difference_among_players_with_maps_above(threshold)
+Descrição: Retorna a diferença entre o número máximo e mínimo de abates para jogadores que jogaram mais de um número especificado de mapas.
+4. Jogadores com Mais de X Abates Iniciais e Rating Acima de Y
+Função: players_with_opening_kills_and_rating_above(opening_kills_threshold, rating_threshold)
+Descrição: Lista jogadores que têm mais de um número especificado de abates iniciais e um rating acima de um determinado limite.
+5. Jogador com mais kills em cada categoria
+Função: get_top_killers()
+Descrição: Função para encontrar o jogador com mais kills em cada categoria
+
+Consultas Avançadas
+
+1. Jogadores com Mais de X% de Vitórias Após o Primeiro Abate
+Função: players_with_win_percent_after_first_kill_above(threshold)
+Descrição: Lista jogadores cujos times têm uma porcentagem de vitórias superior a um determinado limite após o primeiro abate.
+2. Média de Porcentagem de Vitórias Após o Primeiro Abate por País
+Função: win_percentage_after_first_kill_by_country(threshold)
+Descrição: Calcula a média da porcentagem de vitórias após o primeiro abate para cada país, filtrando por uma porcentagem mínima e classificando os países pela taxa de vitórias.
+3. Média de Abates por País para Jogadores com Mais de X Mapas Jogados
+Função: average_kills_by_country(min_maps_played)
+Descrição: Retorna a média de abates para jogadores de cada país que jogaram mais do que o número especificado de mapas.
+4. Razão de Abates/Mortes por Faixa Etária
+Função: kd_ratio_by_age_group()
+Descrição: Agrupa jogadores em faixas etárias predefinidas e calcula sua razão média de abates/mortes para cada grupo.
+5. Top Jogadores por Abates por Round com Porcentagem de Headshots Abaixo de X%
+Função: top_kill_per_round_low_headshot(threshold)
+Descrição: Classifica os melhores jogadores por abates por round, mas inclui apenas jogadores com uma porcentagem de headshots abaixo de um determinado limite.
+6. Total de Abates por Tipo de Arma por Time
+Função: total_kills_by_weapon_per_team()
+Descrição: Agrega o total de abates para cada time, discriminado por tipo de arma (rifle, sniper, SMG, pistola, granada, etc.).
+7. Diferença de Abates/Mortes para Jogadores com Mais de X Mapas e Y Abates
+Função: kill_death_difference_by_maps_and_kills(min_maps_played, min_kills)
+Descrição: Calcula a diferença de abates/mortes para jogadores que jogaram mais do que o número especificado de mapas e têm mais de um determinado número de abates.
